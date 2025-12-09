@@ -4,5 +4,7 @@ metadata:
   name: error-templates
 spec:
   containers:
-  - name : nginx
-    image : nginhghj
+  # - name : nginx
+  #   image : nginhghj
+  - name: almalinux
+    image: almalinux:9
