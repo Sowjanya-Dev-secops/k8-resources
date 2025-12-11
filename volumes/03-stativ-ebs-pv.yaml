@@ -14,4 +14,16 @@ spec:
     fsType: ext4
     # we should give our volume ID 
     volumeHandle: vol-0c3a69bb3c6b86a32
-  
+  ---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ebs-static
+spec:
+  storageClassName: "" # Empty string must be explicitly set otherwise default StorageClass will be set
+  volumeName: ebs-static # SHOULD be compulsory pv name tha is in 5th line
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 15Gi
