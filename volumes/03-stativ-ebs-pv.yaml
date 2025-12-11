@@ -14,7 +14,7 @@ spec:
     fsType: ext4
     # we should give our volume ID 
     volumeHandle: vol-0c3a69bb3c6b86a32
-  ---
+---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
