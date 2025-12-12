@@ -13,7 +13,7 @@ spec:
     driver: ebs.csi.aws.com
     fsType: ext4
     # we should give our volume ID 
-    volumeHandle: vol-02b33811e912a8121
+    volumeHandle: vol-0b6e663f13a27c4de
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -46,7 +46,8 @@ spec:
     - name: nginx-html
       mountPath: /usr/share/nginx/html
   nodeSelector:
-    topology.kubernetes.io/zone: us-east-1d
+    topology.kubernetes.io/zone: us-east-1a
+    # here we are giving az which we are selecting the az in the volume 
 
   volumes:
   - name: nginx-html
