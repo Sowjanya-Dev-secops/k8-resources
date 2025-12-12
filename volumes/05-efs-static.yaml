@@ -13,7 +13,7 @@ spec:
   csi:
     driver: efs.csi.aws.com
     volumeHandle: fs-0d1813099393cb540 # this should be taken from the fisle system we created
-----
+---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
