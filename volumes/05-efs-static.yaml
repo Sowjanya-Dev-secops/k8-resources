@@ -25,3 +25,45 @@ spec:
   resources:
     requests:
       storage: 5Gi
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  labels:
+    purpose: efs-static
+    project: roboshop
+    component: frontend
+    environment: dev
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    volumeMounts:
+    - name: nginx-html
+      mountPath: /usr/share/nginx/html
+  nodeSelector:
+    topology.kubernetes.io/zone: us-east-1a
+    # here we are giving az which we are selecting the az in the volume 
+  volumes:
+  - name: nginx-html
+    persistentVolumeClaim:
+      claimName: efs-static
+# ---
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: nginx-lb
+# spec:
+#   type: LoadBalancer
+#   selector:
+#     project: roboshop
+#     component: frontend
+#     environment: dev
+#     purpose: efs-static # same in pod label
+#   ports:
+#     - protocol: TCP
+#       port: 80 # service port
+#       targetPort: 80 # container port
+#       nodePort: 30007 
