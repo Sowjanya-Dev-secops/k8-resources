@@ -8,7 +8,7 @@ metadata:
     project: roboshop
 spec:
   # modify replicas according to your case
-  replicas: 3
+  replicas: 8
   selector:
   #these labels are used to select pods
     matchLabels:
