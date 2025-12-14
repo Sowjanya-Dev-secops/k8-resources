@@ -24,7 +24,8 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:latest
+        # image: nginx:latest
+        image: nginx:trixie:pearl
 # ---
 # apiVersion: v1
 # kind: Service
